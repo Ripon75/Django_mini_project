@@ -1,0 +1,41 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+        <div class="mt-sm-1 mb-sm-5 float-right">
+            <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+            <a href="{% url 'register' %}" class="btn btn-secondary">Register</a>          
+            <a href="{% url 'create'%}" class="btn btn-warning">Add Product</a>
+        </div>
+        <div class="mt-sm-4">
+            
+            <table class="table mt-sm-5">
+                <thead>
+                  <tr>
+                    <th >SL</th>
+                    <th>Name</th>
+                    <th>slug</th>
+                    <th>description</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                    {% for pdc in product%}
+                  <tr>
+                    <td></td>
+                    <td>{{pdc.name}}</td>
+                    <td>@{{pdc.slug}}</td>
+                    <td>@{{pdc.description}}</td>
+                    <td>
+                        <a class="btn btn-success" href="edit/{{pdc.id}}">Edit</a>
+                        <a class="btn btn-danger" href="delete/{{pdc.id}}">delete</a>
+                    </td>
+                  </tr>
+                 
+                  {%endfor%}
+                </tbody>
+              </table>
+        </div>
+
+{% endblock %}

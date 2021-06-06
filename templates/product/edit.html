@@ -1,0 +1,26 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+<form action="../update/{{product.id}}" method="POST">
+ 
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" value="{{product.name}}" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Slug name</label>
+      <input type="text" class="form-control" value="{{product.slug}}" name="slug">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <textarea class="form-control" name="description" cols="30" rows="5">{{product.description}}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+
+{% endblock %}

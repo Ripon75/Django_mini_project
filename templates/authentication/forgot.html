@@ -1,0 +1,29 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+<form action="{%url 'product'%}" method="POST">
+ 
+    {%csrf_token%}
+    
+    <div class="row mt-5 justify-content-center">
+        <div class="col-sm-4">
+            <h3>Forget Your Account</h3>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" class="form-control" placeholder="Enter Email" name="email">
+              </div>
+
+             
+              
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        <small class="text-center">Have Account
+            <a href="{% url 'login' %}">Click Here</a>
+        </small>
+        </div>          
+        
+    </div>
+    
+  </form>
+   
+{% endblock %}
